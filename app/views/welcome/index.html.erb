@@ -1,0 +1,15 @@
+<%@news.each do |news|%>
+
+<div class="news" onclick="window.location='<%="/#{news.created_at.year}/#{news.created_at.month}/#{news.url}" %>.html';">
+<img src="/uploads/<%=news.image%>"/>
+<div>
+<h5><%=news.title%></h5>
+<br>
+<p><%=simple_format(news.content.truncate(100))%></p>
+</div>
+
+</div>
+<%end%>
+<%if @news2.length > 0%>
+<%=link_to 'suivant', "/?page=#{params[:page].to_i+10}"%>
+<%end%>

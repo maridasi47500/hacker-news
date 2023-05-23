@@ -1,0 +1,27 @@
+textarea {
+height:300px;
+}
+.myimg {
+width:100%;
+max-height:300px;
+}
+.card {
+max-width:200px;
+}
+.news img {
+width: 100px;
+}
+.news * {
+display:block;
+float:left;
+}
+.news h5{
+clear:both;
+}
+.news div p {
+clear:both;
+}
+.news div {
+float:left;
+width:calc(100vw - 100px);
+}

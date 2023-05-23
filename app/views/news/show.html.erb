@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h3>
+  <%= @news.title %>
+</h3>
+<p><%=@news.created_at%> By: <%=@news.user.try(:name)%></p>
+
+<img src="/uploads/<%= @news.image %>" class="myimg"/>
+
+<p>
+  <%= simple_format(@news.content) %>
+</p>
+
+<p>Breaking news</p>
+<!-- bootstrap card deck-->
+<div class="row row-cols-1 row-cols-md-2 g-4">
+<%News.breaking.each do |news|%>
+
+  <div class="col">
+    <div class="card">
+      <img src="/uploads/<%=news.image%>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%=news.title%></h5>
+        <p class="card-text"><%=simple_format(news.content.truncate(100))%></p>
+      </div>
+    </div>
+  </div>
+<%end%>
+</div>
+<p>Cybersecurity sources</p>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+<%News.cyber.each do |news|%>
+
+  <div class="col">
+    <div class="card">
+      <img src="/uploads/<%=news.image%>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%=news.title%></h5>
+        <p class="card-text"><%=simple_format(news.content.truncate(100))%></p>
+      </div>
+    </div>
+  </div>
+<%end%>
+</div>
+
+
+
+<%= link_to 'Edit', edit_news_path(@news) %> |
+<%= link_to 'Back', news_index_path %>
