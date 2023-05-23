@@ -4,10 +4,10 @@ before_save do
 self.url=self.title.parameterize
 end
 def self.cyber
-last(10)
+where(mytype: "cyber").last(10)
 end
 def self.breaking
-last(10)
+where(mytype: "news").last(10)
 end
 def image=(uploaded_io)
 File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |f|
