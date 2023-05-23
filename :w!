@@ -1,4 +1,4 @@
-<%= current_user ? (button_to 'signout', '/users/sign_out', method: :delete, data: { confirm: 'Are you sure?' }) : "" %>
+<%= current_user ? (link_to 'signout', current_user, method: :delete, data: { confirm: 'Are you sure?' }) : "" %>
 <%@news.each do |news|%>
 
 <div class="news" onclick="window.location='<%="/#{news.created_at.year}/#{news.created_at.month}/#{news.url}" %>.html';">
